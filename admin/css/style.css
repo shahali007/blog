@@ -1,0 +1,12 @@
+.tag::after {
+    border-left: 0 solid #1ABB9C!important;
+}
+#tags_1_tagsinput{
+    min-height:0!important;
+    max-height:100px!important;
+    height:auto!important;
+}
+
+#chars_box.bg-red{
+    margin-right:0!important;
+}
