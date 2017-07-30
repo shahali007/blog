@@ -1,1 +1,0 @@
-<?php $sUrl = "http://localhost:9000/workstation/blog/"; ?>
