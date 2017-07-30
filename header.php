@@ -1,7 +1,7 @@
 <?php
     include_once "config/config.php";
     include_once "config/bloginfo.php";
-    include_once "config/helper-function.php";
+    include_once "helper/helper-functions.php";
     $blogInfo = new blogInfo();
     $helperClass = new helperClass();
 ?>
