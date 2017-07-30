@@ -1,6 +1,12 @@
-<?php include_once "config/config.php"; ?>
+<?php
+    include_once "config/config.php";
+    include_once "config/bloginfo.php";
+    include_once "config/helper-function.php";
+    $blogInfo = new blogInfo();
+    $helperClass = new helperClass();
+?>
 <!DOCTYPE html>
-<html lang="">
+<html lang="en-us">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

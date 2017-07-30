@@ -97,8 +97,9 @@ body {
     font-size:16px;
     margin-bottom:15px;
 }
-.article-list .media .time{
+.article-list .media .time {
     display: block;
+    padding-top: 10px;
 }
 .article-list .media p {
     font-size: 13px;

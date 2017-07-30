@@ -1,26 +1,33 @@
-<?php include_once "header.php"; ?>
+<?php
+    include_once "header.php";
+    $allpost = $blogInfo->allpost();
+    $allcategory = $blogInfo->allcategory();
+    //echo "<pre>";
+    //var_dump($allcategory);
+    //die();
+?>
     <div class="main">
         <div class="row">
             <div class="col-sm-8" style="padding-right:0;">
                 <div class="border">
                     <div class="article-list">
                         <h3 class="heading">All Articles</h3>
-                        <?php for($i=0; $i<5; $i++){ ?>
+                        <?php foreach($allpost as $allposts){ ?>
                         <article class="media">
                             <div class="media-left">
                                 <div class="img-box">
-                                    <img class="media-object" src="<?php echo $sUrl;?>images/shahali007.jpg" alt="Shahali007">
+                                    <img class="media-object" src="<?php echo $sUrl;?>images/<?php echo $allposts['post_image'];?>" alt="Shahali007">
                                 </div>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">PHP Fundamentals Tutorial (Bangla)</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur magni minima reprehenderit vel veritatis?Aperiam consectetur magni minima reprehenderit vel veritatis?reprehenderit vel veritatis?</p>
+                                <h4 class="media-heading"><?php echo $allposts['post_name'];?></h4>
+                                <p><?php echo $allposts['post_brief'];?></p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <a href="<?php echo $sUrl;?>details.php" class="btn btn-sm btn-info"><i class="fa fa-forward"></i> Read More</a>
+                                        <a href="<?php echo $sUrl;?>details.php?id=<?php echo $allposts['id'];?>" class="btn btn-sm btn-info"><i class="fa fa-forward"></i> Read More</a>
                                     </div>
                                     <div class="col-sm-8 text-right">
-                                        <small class="text-muted time"><a href="<?php echo $sUrl;?>category.php">Category</a>, &nbsp;<i class="fa fa-calendar"></i> 23 July 2017, <em>Shahali Bogdadi, </em></small>
+                                        <small class="text-muted time"><a href="<?php echo $sUrl;?>category.php?catid=<?php echo $allposts['cat_id'];?>">Category</a>, &nbsp;<i class="fa fa-calendar"></i> <?php echo $helperClass->formatDate($allposts['created_at']);?>, <em><?php echo $allposts['author'];?></em></small>
                                     </div>
                                 </div>
                             </div>
@@ -33,30 +40,30 @@
                 <div class="border">
                     <h3 class="heading">Categories</h3>
                     <ul class="category-list">
-                        <li><a href="#">Cras justo odio</a></li>
-                        <li><a href="#">Dapibus ac facilisis in</a></li>
-                        <li><a href="#">Morbi leo risus</a></li>
-                        <li><a href="#">Porta ac consectetur ac</a></li>
-                        <li><a href="#">Vestibulum at eros</a></li>
+                        <?php foreach ($allcategory as $allcategories){?>
+                            <li><a href="<?php echo $sUrl;?>category.php?category=<?php echo $allcategories['id'];?>"><?php echo $allcategories['cat_name'];?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <div class="border" style="margin-top:30px;">
                     <h3 class="heading">Latest Articles</h3>
                     <div class="latest-list">
-                        <?php for($i=0; $i<5; $i++){ ?>
-                        <article class="media">
-                            <div class="media-left">
-                                <div class="img-box">
-                                    <img class="media-object" src="https://www.jagonews24.com/media/imgAll/2017July//gas-3-20170727090918.jpg" alt="Shahali007">
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">
-                                    <a href="#">PHP Fundamentals Tutorial (Bangla)</a>
-                                </h4>
-                            </div>
-                        </article>
-                        <?php } ?>
+                        <?php
+                            foreach($allpost as $key => $allposts){
+                                if($key<5){?>
+                                <article class="media">
+                                    <div class="media-left">
+                                        <div class="img-box">
+                                            <img class="media-object" src="<?php echo $sUrl;?>images/<?php echo $allposts['post_image'];?>" alt="Shahali007">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            <a href="#"><?php echo $allposts['post_name'];?></a>
+                                        </h4>
+                                    </div>
+                                </article>
+                        <?php } } ?>
                     </div>
                 </div>
             </div>
