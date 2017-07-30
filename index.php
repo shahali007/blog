@@ -21,7 +21,7 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><?php echo $allposts['post_name'];?></h4>
-                                <p><?php echo $allposts['post_brief'];?></p>
+                                <p><?php echo $helperClass->textShortener($allposts['post_brief'], 150);?></p>
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <a href="<?php echo $sUrl;?>details.php?id=<?php echo $allposts['id'];?>" class="btn btn-sm btn-info"><i class="fa fa-forward"></i> Read More</a>

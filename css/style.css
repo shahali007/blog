@@ -84,14 +84,14 @@ body {
 .article-list .media .media-left .img-box {
     width: 170px;
     position: relative;
-    height: 135px;
+    height: 115px;
     background: #f1f1f1;
     overflow: hidden;
 }
 .article-list .media .media-left img {
     position: absolute;
-    width: 160%;
-    left: -30%;
+    width: 140%;
+    left: -20%;
 }
 .article-list .media .media-heading{
     font-size:16px;
