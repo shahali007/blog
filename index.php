@@ -24,7 +24,7 @@
                                 <p><?php echo $helperClass->textShortener($allposts['post_brief'], 100);?></p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <a href="<?php echo $sUrl;?>details.php?id=<?php echo $allposts['id'];?>" class="btn btn-sm btn-info"><i class="fa fa-forward"></i> Read More</a>
+                                        <a href="<?php echo $sUrl;?>details.php?pid=<?php echo $allposts['id'];?>" class="btn btn-sm btn-info"><i class="fa fa-forward"></i> Read More</a>
                                     </div>
                                     <div class="col-sm-8 text-right">
                                         <small class="text-muted time"><a href="<?php echo $sUrl;?>category.php?catid=<?php echo $allposts['cat_id'];?>">Category</a>, &nbsp;<i class="fa fa-calendar"></i> <?php echo $helperClass->formatDate($allposts['created_at']);?>, <em><?php echo $allposts['author'];?></em></small>
@@ -34,6 +34,27 @@
                         </article>
                         <?php } ?>
                     </div>
+                    <nav aria-label="Page navigation" id="pagination">
+                        <ul class="pager">
+                            <li><a href="#"><span>First</span></a></li>
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                            <li><a href="#"><span>Last</span></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
             <div class="col-sm-4">
