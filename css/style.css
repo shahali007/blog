@@ -164,6 +164,7 @@ header.navbar{
 .category-list li:last-child a {
     border-bottom: none;
 }
+.category-list li.active a,
 .category-list li a:hover{color:#337ab7}
 
 
