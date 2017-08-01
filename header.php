@@ -50,7 +50,7 @@
                 <li><a href="<?php echo $sUrl;?>about.php">About</a></li>
                 <li><a href="<?php echo $sUrl;?>contact.php">Contact</a></li>
             </ul>
-            <form class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" method="get" action="search.php" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
