@@ -3,12 +3,16 @@
     if(isset($_GET['catpage'])){
         $id = $_GET['catpage'];
         $getAllPostByCatId = $blogInfo->getAllPostByCatId($id);
+
+        echo "<pre>";
+        var_dump($getAllPostByCatId);
+        die();
     }
 ?>
     <div class="main">
         <h3 class="heading">
             <a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a> <i class="fa fa-angle-right"></i>
-            <span><?php echo $getAllPostByCatId[0]->cat_name;?></span>
+            <span><?php echo $getAllPostByCatId->cat_name;?></span>
         </h3>
         <div class="row">
             <div class="col-sm-8" style="padding-right:0;">
@@ -69,7 +73,7 @@
                     <ul class="category-list">
                         <?php foreach ($allcategory as $allcategories){?>
                             <li class="<?php echo ($allcategories['c_id'] == $_GET['catpage']) ? 'active' : '' ?>">
-                                <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $allcategories['c_id'];?>"><?php echo $allcategories['cat_name'];?></a>
+                                <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $allcategories['cat_slug'];?>"><?php echo $allcategories['cat_name'];?></a>
                             </li>
                         <?php } ?>
                     </ul>
