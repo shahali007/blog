@@ -9,6 +9,15 @@
         <div class="row">
             <div class="col-sm-8" style="padding-right:0;">
                 <div class="border">
+                    <h3 class="jumbotron">
+                        <?php
+                        $str = "hello-world-It's-a-beautiful-day";
+                        $str = str_replace("-", " ",$str);
+                        //strtoupper($str);
+                        //print_r (explode(" ",$str));
+                        echo ucwords($str);
+                        ?>
+                    </h3>
                     <div class="article-list">
                         <h3 class="heading">All Articles</h3>
                         <?php foreach($allpostWithCat as $allpostWithCats){ ?>
@@ -27,7 +36,7 @@
                                     </div>
                                     <div class="col-sm-8 text-right">
                                         <small class="text-muted time">
-                                            <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $allpostWithCats['cat_id'];?>" class="label label-info">
+                                            <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $allpostWithCats['cat_slug'];?>" class="">
                                                 <?php echo $allpostWithCats['cat_name'];?>
                                             </a>  &nbsp;
                                             <i class="fa fa-calendar"></i> <?php echo $helperClass->formatDate($allpostWithCats['created_at']);?>,

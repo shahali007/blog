@@ -27,7 +27,7 @@
                     </article>
                 </div>
                 <div class="related">
-                    <h3 class="heading">Related Articles - <span class="text-info"><?php echo $getPostById['cat_name'];?></span></h3>
+                    <h3 class="heading">Related Articles - <span class="text-info"><?php echo $getCategoryName->cat_name;?></span></h3>
                     <div class="row">
                         <?php foreach ($getAllPostByCatId as $getAllPostByCatIds){?>
                         <div class="col-sm-4">
