@@ -262,6 +262,20 @@ header.navbar{
 
 /*
 -------------------------
+| network css
+-------------------------*/
+#network{}
+#network a{}
+#network a.fa-facebook{}
+#network a.fa-twitter{}
+#network a.fa-pinterest{}
+#network a.fa-stumbleupon{}
+#network a.fa-linkedin{}
+#network a.fa-envelope{}
+
+
+/*
+-------------------------
 | pagination css
 -------------------------*/
 #pagination a {

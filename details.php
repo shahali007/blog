@@ -22,6 +22,14 @@
                             <i class="fa fa-calendar"></i> <?php echo $helperClass->formatDate($getPostById['created_at']);?>,
                             by <a href="#"><?php echo $getPostById['author'];?></a>
                         </div>
+                        <div id="network">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="#"><i class="fa fa-stumbleupon"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
                         <img style="width:100%;" src="<?php echo $sUrl?>images/<?php echo $getPostById['post_image'];?>" alt="<?php echo $getPostById['post_image'];?>">
                         <?php echo $getPostById['post_details'];?>
                     </article>
