@@ -3,7 +3,7 @@
     if(isset($_GET['pid'])){
         $id = $_GET['pid'];
         $getPostById = $blogInfo->getPostById($id);
-        $getAllPostByCatId = $blogInfo->getAllPostByCatId($getPostById['cat_slug']);
+        $getAllPostByCatId = $blogInfo->getAllPostByCatId($getPostById['cat_slug'], $id);
         $getCategoryName = $blogInfo->getCategoryNameByCatId($getPostById['cat_slug']);
     }
 ?>
