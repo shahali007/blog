@@ -264,14 +264,21 @@ header.navbar{
 -------------------------
 | network css
 -------------------------*/
-#network{}
-#network a{}
-#network a.fa-facebook{}
-#network a.fa-twitter{}
-#network a.fa-pinterest{}
-#network a.fa-stumbleupon{}
-#network a.fa-linkedin{}
-#network a.fa-envelope{}
+#network{margin-bottom:20px;}
+#network a {
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 12px;
+    display: inline-block;
+}
+#network a i.fa{padding-right:5px;}
+#network a.facebook{background:#3A5A99;}
+#network a.twitter{background:#30A9D6;}
+#network a.pinterest{background:#BD081C;}
+#network a.linkedin{background:#0077B5;}
+#network a.paper-plane{background:#EB4924;}
+#network a.print {border: 1px solid #eee;color: #000;box-shadow: -2px 2px 3px -1px gray;}
+#network a:hover{opacity:0.8;text-decoration:none;}
 
 
 /*
