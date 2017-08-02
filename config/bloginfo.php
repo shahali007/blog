@@ -67,5 +67,15 @@ class blogInfo{
         $result = $query->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
+
+    # get category name by category id
+    public function getCategoryNameByCatId($id){
+        $sql = "SELECT cat_name FROM blog_category WHERE cat_slug = :id";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
 }
 ?>
