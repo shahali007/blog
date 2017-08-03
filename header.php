@@ -52,10 +52,6 @@
                 <li><a href="<?php echo $sUrl;?>settings.php">Settings</a></li>
             </ul>
             <form class="navbar-form navbar-right" method="get" action="search.php" role="search" style="margin-right:-5px;">
-                <!--<div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default"><i class="fa fa-microphone"></i></button>-->
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search">
                     <span class="input-group-btn">
