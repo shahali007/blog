@@ -9,15 +9,15 @@
         <div class="row">
             <div class="col-sm-8" style="padding-right:0;">
                 <div class="border">
-                    <h3 class="jumbotron">
+                    <!--<h3 class="jumbotron">
                         <?php
-                        $str = "hello-world-It's-a-beautiful-day";
+/*                        $str = "hello-world-It's-a-beautiful-day";
                         $str = str_replace("-", " ",$str);
                         //strtoupper($str);
                         //print_r (explode(" ",$str));
                         echo ucwords($str);
-                        ?>
-                    </h3>
+                        */?>
+                    </h3>-->
                     <div class="article-list">
                         <h3 class="heading">All Articles</h3>
                         <?php foreach($allpostWithCat as $allpostWithCats){ ?>

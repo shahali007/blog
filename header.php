@@ -34,7 +34,7 @@
 
 
 <section class="container" id="wraper">
-    <header class="navbar navbar-default" role="navigation">
+    <header class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -46,20 +46,27 @@
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a></li>
+                <li><a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a></li>
                 <li><a href="<?php echo $sUrl;?>about.php">About</a></li>
                 <li><a href="<?php echo $sUrl;?>contact.php">Contact</a></li>
+                <li><a href="<?php echo $sUrl;?>settings.php">Settings</a></li>
             </ul>
-            <form class="navbar-form navbar-right" method="get" action="search.php" role="search">
-                <div class="form-group">
+            <form class="navbar-form navbar-right" method="get" action="search.php" role="search" style="margin-right:-5px;">
+                <!--<div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn btn-default"><i class="fa fa-microphone"></i></button>-->
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit"><i class="fa fa-microphone"></i></button>
+                    </span>
+                </div>
             </form>
         </div>
     </header>
     <div class="banner">
-        <h1 class="text-center">Shahali Bogdadi <br>
+        <h1 class="text-center">Practice Project<br>
             <small class="social">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-linkedin"></i></a>

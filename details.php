@@ -23,15 +23,23 @@
                             by <a href="#"><?php echo $getPostById['author'];?></a>
                         </div>
                         <div id="network">
-                            <a href="#" data-toggle="tooltip" title="Facebook" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
-                            <a href="#" data-toggle="tooltip" title="Linkedin" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
-                            <a href="#" data-toggle="tooltip" title="Twitter" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
-                            <a href="#" data-toggle="tooltip" title="Pinterest" class="pinterest"><i class="fa fa-pinterest"></i>Pinterest</a>
-                            <a href="#" data-toggle="tooltip" title="Email" class="paper-plane"><i class="fa fa-paper-plane"></i>Email</a>
-                            <a href="#" data-toggle="tooltip" title="Print" class="print pull-right"><i class="fa fa-print"></i>Print</a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+                            <a href="#" class="pinterest"><i class="fa fa-pinterest"></i>Pinterest</a>
+                            <a href="#" class="paper-plane"><i class="fa fa-paper-plane"></i>Email</a>
+                            <a href="#" class="print pull-right"><i class="fa fa-print"></i>Print</a>
                         </div>
                         <img style="width:100%;" src="<?php echo $sUrl?>images/<?php echo $getPostById['post_image'];?>" alt="<?php echo $getPostById['post_image'];?>">
                         <?php echo $getPostById['post_details'];?>
+                        <div id="network">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+                            <a href="#" class="pinterest"><i class="fa fa-pinterest"></i>Pinterest</a>
+                            <a href="#" class="paper-plane"><i class="fa fa-paper-plane"></i>Email</a>
+                            <a href="#" class="print pull-right"><i class="fa fa-print"></i>Print</a>
+                        </div>
                     </article>
                 </div>
                 <div class="related">
