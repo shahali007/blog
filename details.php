@@ -42,10 +42,15 @@
                         </div>
                     </article>
                 </div>
+                <?php
+                    if(count($getAllPostByCatId) > 0){
+                ?>
                 <div class="related">
                     <h3 class="heading">Related Articles - <span class="text-info"><?php echo $getCategoryName->cat_name;?></span></h3>
                     <div class="row">
-                        <?php foreach ($getAllPostByCatId as $getAllPostByCatIds){?>
+                        <?php
+                            foreach ($getAllPostByCatId as $getAllPostByCatIds){
+                        ?>
                         <div class="col-sm-4">
                             <div class="thumbnail">
                                 <img src="<?php echo $sUrl;?>images/<?php echo $getAllPostByCatIds->post_image;?>" alt="<?php echo $getAllPostByCatIds->post_image;?>">
@@ -60,6 +65,7 @@
                         <?php } ?>
                     </div>
                 </div>
+            <?php } ?>
             </div>
         </div>
         <?php include_once "sidebar.php"?>

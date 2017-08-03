@@ -19,11 +19,12 @@
             <div class="col-sm-8" style="padding-right:0;">
                 <div class="border">
                     <?php
-                        if(empty($getAllPostByCatId)){ ?>
+                        if(count($getAllPostByCatId) < 1){ ?>
                             <div class="text-center">
                                 <h2 style="padding:30px 0;height:108vh;"> <i class="fa fa-pagelines" aria-hidden="true"></i>
                                     <br>
-                                    Empty!</h2>
+                                    Empty!
+                                </h2>
                             </div>
                         <?php } else { ?>
                         <div class="article-list">

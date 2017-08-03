@@ -21,6 +21,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $sUrl;?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $sUrl;?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $sUrl;?>css/grid.css">
     <link rel="stylesheet" href="<?php echo $sUrl;?>css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
