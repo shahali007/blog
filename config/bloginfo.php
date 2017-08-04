@@ -117,5 +117,26 @@ class blogInfo{
         $result = $query->fetch(PDO::FETCH_OBJ);
         return $result;
     }
+
+    # select all post with sub cat
+    public function getPostWithSubCatByPostId(){
+
+    }
+
+    # get subcat by category id
+    public function allSubcatBYcatId($id){
+        $sql = "SELECT * FROM blog_sub_category WHERE cat_id=:id";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 ?>
+
+
+
+
+
+

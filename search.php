@@ -26,7 +26,7 @@ if (empty($_GET['yoyo_search'])) {
                     echo count($searchQuery);
                 } else {
                     echo '</span><strong>';
-                    echo 'মোট আবাল / বেক্কল / ছেচ্ছরের সংখ্যা '. $abalerSonkhaNirnoy->abaler_sonkha.' জন';
+                    echo $abalerSonkhaNirnoy->abaler_sonkha.' জন';
                     echo '</strong>';
                 }
             ?>

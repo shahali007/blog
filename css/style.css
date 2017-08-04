@@ -360,9 +360,11 @@ header.navbar{
 }
 .search_heading strong{
     color: #073E93;
+    text-transform: capitalize;
 }
 .search_heading strong a{
     color: #073E93;
+    text-transform: capitalize;
 }
 .search_heading a{
     color:#fff;

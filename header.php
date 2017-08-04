@@ -10,6 +10,10 @@
     $allcategory = $blogInfo->allcategory();
 
 
+    //echo "<pre>";
+    //print_r($allcategory);
+
+    //die();
 
 ?>
 <!DOCTYPE html>
@@ -53,6 +57,7 @@
                 <li><a href="<?php echo $sUrl;?>about.php">About</a></li>
                 <li><a href="<?php echo $sUrl;?>contact.php">Contact</a></li>
                 <li><a href="<?php echo $sUrl;?>settings.php">Settings</a></li>
+                <li><a href="<?php echo $sUrl;?>practice.php">Test Page</a></li>
             </ul>
             <form class="navbar-form navbar-right" method="GET" action="search.php" role="search" style="margin-right:-5px;">
                 <div class="input-group">
@@ -65,14 +70,26 @@
         </div>
     </header>
     <div class="banner">
-        <h1 class="text-center">Practice Project<br>
-            <small class="social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-            </small>
+        <h1 class="">Project Developed by:<br>
+            <div class="row">
+                <div class="col-sm-7">
+                    <p style="font-size: 17px;line-height: 24px;padding: 14px 0;">
+                        Shahali Bogdadi (Web Developer)<br>
+                        Technology : PHP, OOP, MySql, SQL, HTML5, CSS3, Bootstrap, jQuery.
+                    </p>
+                </div>
+
+
+                <div class="col-sm-5 text-right">
+                    <small class="social text-center">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </small>
+                </div>
+            </div>
         </h1>
     </div>
