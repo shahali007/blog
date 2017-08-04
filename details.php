@@ -1,23 +1,31 @@
 <?php
     include_once "header.php";
+
     if(isset($_GET['pid'])){
         $id = $_GET['pid'];
         $getPostById = $blogInfo->getPostById($id);
         $getAllPostByCatId = $blogInfo->getAllPostByCatId($getPostById['cat_slug'], $id);
         $getCategoryName = $blogInfo->getCategoryNameByCatId($getPostById['cat_slug']);
+        if(($getPostById['id']) != $id || ($getPostById['id'])== NULL){
+            header("location: 404.php");
+        }
+        //echo "<pre>";
+        //print_r($getAllPostByCatId);
+        //die();
     }
+
 ?>
 <div class="main">
-    <h3 class="heading">
-        <a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a><i class="fa fa-angle-right"></i>
-        <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $getPostById['cat_slug'];?>"><?php echo $getCategoryName->cat_name;?></a>
+    <h3 class="search_heading">
+        <span><a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a></span>
+        <strong><a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $getPostById['cat_slug'];?>"><?php echo $getCategoryName->cat_name;?></a></strong>
     </h3>
     <div class="row">
         <div class="col-sm-8" style="padding-right:0;">
             <div class="border">
                 <div class="details">
                     <article>
-                        <h1><?php echo $getPostById['post_name'];?></h1>
+                        <h1><?php echo $getPostById['post_name']; ?> </h1>
                         <div class="details-time">
                             <i class="fa fa-calendar"></i> <?php echo $helperClass->formatDate($getPostById['created_at']);?>,
                             by <a href="#"><?php echo $getPostById['author'];?></a>

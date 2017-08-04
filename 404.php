@@ -12,13 +12,13 @@
                         <h1>
                             <i class="fa fa-blind"></i>
                             404 <br>
-                            <small>The page not found!</small>
+                            <small>Not found!</small>
                         </h1>
-                        <form action="" method="get">
+                        <form method="GET" action="search.php" role="search">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="How can we help you?">
+                                        <input type="text" class="form-control" name="yoyo_search" placeholder="How can we help you?">
                                         <span class="input-group-btn">
         <button class="btn btn-info" type="submit"><i class="fa fa-search"></i></button>
       </span>

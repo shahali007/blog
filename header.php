@@ -9,6 +9,8 @@
     $allpostWithCat = $blogInfo->allpostWithCat();
     $allcategory = $blogInfo->allcategory();
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -52,9 +54,9 @@
                 <li><a href="<?php echo $sUrl;?>contact.php">Contact</a></li>
                 <li><a href="<?php echo $sUrl;?>settings.php">Settings</a></li>
             </ul>
-            <form class="navbar-form navbar-right" method="get" action="search.php" role="search" style="margin-right:-5px;">
+            <form class="navbar-form navbar-right" method="GET" action="search.php" role="search" style="margin-right:-5px;">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" name="yoyo_search" placeholder="Search" value="<?php if (!empty($_GET['yoyo_search'])){echo $_GET['yoyo_search'];}?>" autofocus>
                     <span class="input-group-btn">
                         <button class="btn btn-info" type="submit"><i class="fa fa-microphone"></i></button>
                     </span>

@@ -4,6 +4,9 @@
         $id = $_GET['catpage'];
         $getAllPostByCatId = $blogInfo->getAllPostByCatId($id);
         $getCategoryName = $blogInfo->getCategoryNameByCatId($id);
+        if(($getCategoryName->cat_slug) != $id || ($getCategoryName->cat_slug)== NULL){
+            header("location: 404.php");
+        }
 
         //echo "<pre>";
         //var_dump($getAllPostByCatId);
@@ -11,9 +14,9 @@
     }
 ?>
     <div class="main">
-        <h3 class="heading">
-            <a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a> <i class="fa fa-angle-right"></i>
-            <span><?php echo $getCategoryName->cat_name;?></span>
+        <h3 class="search_heading">
+            <span><a href="<?php echo $sUrl;?>"><i class="fa fa-home"></i></a> </span>
+            <strong><?php echo $getCategoryName->cat_name;?></strong>
         </h3>
         <div class="row">
             <div class="col-sm-8" style="padding-right:0;">
@@ -21,7 +24,7 @@
                     <?php
                         if(count($getAllPostByCatId) < 1){ ?>
                             <div class="text-center">
-                                <h2 style="padding:30px 0;height:108vh;"> <i class="fa fa-pagelines" aria-hidden="true"></i>
+                                <h2 style="padding:30px 0;height:108vh;"> <i class="fa fa-eye-slash" aria-hidden="true"></i>
                                     <br>
                                     Empty!
                                 </h2>

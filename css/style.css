@@ -325,6 +325,73 @@ header.navbar{
 
 /*
 -------------------------
+| search_heading css
+-------------------------*/
+.search_heading {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+    background-color: #eee;
+    -webkit-animation: color_change 1s infinite alternate;
+    -moz-animation: color_change 1s infinite alternate;
+    -ms-animation: color_change 1s infinite alternate;
+    -o-animation: color_change 1s infinite alternate;
+    animation: color_change 1s infinite alternate;
+}
+.search_heading span {
+    background: #073E93;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    margin-right: 15px;
+}
+.search_heading span::before {
+    width: 0;
+    height: 100%;
+    border-style: solid;
+    border-width: 0 0 42px 15px;
+    border-color: transparent transparent transparent #073E93;
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: 0;
+}
+.search_heading strong{
+    color: #073E93;
+}
+.search_heading strong a{
+    color: #073E93;
+}
+.search_heading a{
+    color:#fff;
+}
+
+@-webkit-keyframes color_change {
+    from { background-color: #fff; }
+    to { background-color: rgb(215, 231, 255); }
+}
+@-moz-keyframes color_change {
+    from { background-color: #fff; }
+    to { background-color: rgb(215, 231, 255); }
+}
+@-ms-keyframes color_change {
+    from { background-color: #fff; }
+    to { background-color: rgb(215, 231, 255); }
+}
+@-o-keyframes color_change {
+    from { background-color: #fff; }
+    to { background-color: rgb(215, 231, 255); }
+}
+@keyframes color_change {
+    from { background-color: #fff; }
+    to { background-color: rgb(215, 231, 255); }
+}
+
+
+/*
+-------------------------
 | footer css
 -------------------------*/
 footer {
