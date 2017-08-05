@@ -7,7 +7,7 @@
                 ?>
                 <li class="dropdown">
                     <a href="<?php echo $sUrl;?>category.php?catpage=<?php echo $allcategories['cat_slug'];?>"><?php echo $allcategories['cat_name'];?> <?php if(!empty($allSubcatBYcatId)){echo '<b class="caret"></b>';}?></a>
-                    <?php if($allSubcatBYcatId->rowCount()){?>
+                    <?php if(!empty($allSubcatBYcatId)){?>
                         <ul class="dropdown-menu">
                             <?php foreach ($allSubcatBYcatId as  $allSubcatBYcatIds){?>
                                 <li><a href="<?php echo $allSubcatBYcatIds['s_id'];?>"><?php echo $allSubcatBYcatIds['sub_cat_name'];?></a></li>
