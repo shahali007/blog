@@ -1,5 +1,4 @@
 <?php
-    $sUrl = "http://localhost:9000/workstation/blog/admin/";
     include_once "../config/session.php";
     Session::init();
 
@@ -14,11 +13,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-
     <style>
         body{
             background: #eee;
@@ -108,20 +105,18 @@
     </style>
 </head>
 <body>
-
     <form action="" method="post">
         <h3><b>&#9760;</b> <br> Login Admin Panel</h3>
         <div class="form-group">
-            <input type="email" id="email" placeholder="Email address" name="email">
+            <input type="text" name="user_name" id="user_name" placeholder="Username">
         </div>
         <div class="form-group">
-            <input type="password" id="pwd" placeholder="Enter password" name="pwd">
+            <input type="password" name="user_password" id="user_password" placeholder="Enter password">
         </div>
         <div class="form-group">
             <button type="submit">Login</button>
         </div>
         <p>User: admin, Pass: admin</p>
     </form>
-
 </body>
 </html>
