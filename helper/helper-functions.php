@@ -13,5 +13,14 @@ class helperClass{
         $data = $data."...";
         return $data;
     }
+
+    # data validation check
+    public function validation($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
 }
 ?>
