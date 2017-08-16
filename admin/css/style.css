@@ -10,3 +10,16 @@
 #chars_box.bg-red{
     margin-right:0!important;
 }
+
+.status-active{
+    color: #38dd0c;
+    font-weight:bold;
+}
+.status-inactive{
+    color: red;
+
+}
+
+.paddingTop10{
+    padding-top:10px;
+}

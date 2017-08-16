@@ -1,4 +1,5 @@
 <?php
+
 class helperClass{
 
     # custom date format

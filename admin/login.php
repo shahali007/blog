@@ -1,7 +1,9 @@
 <?php
     include_once "../config/session.php";
     Session::init();
-
+    if (Session::get("login") == true){
+        header("Location:index.php");
+    }
     include_once "../config/config.php";
     include_once "../config/bloginfo.php";
     include_once "../helper/helper-functions.php";
@@ -105,16 +107,24 @@
     </style>
 </head>
 <body>
-    <form action="" method="post">
-        <h3><b>&#9760;</b> <br> Login Admin Panel</h3>
+    <?php
+        if (($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['log_submit'])){
+            $loginStatement = $blogInfo->loginStatement($_POST);
+        }
+    ?>
+    <form action="" method="POST">
+        <h3><b>&#9760;</b><br> Login Admin Panel</h3>
         <div class="form-group">
+            <?php if(isset($loginStatement['not_matched'])){echo $loginStatement['not_matched'];}?>
+            <?php if(isset($loginStatement['user_name'])){echo $loginStatement['user_name'];}?>
             <input type="text" name="user_name" id="user_name" placeholder="Username">
         </div>
         <div class="form-group">
+            <?php if(isset($loginStatement['user_password'])){echo $loginStatement['user_password'];}?>
             <input type="password" name="user_password" id="user_password" placeholder="Enter password">
         </div>
         <div class="form-group">
-            <button type="submit">Login</button>
+            <button type="submit" name="log_submit">Login</button>
         </div>
         <p>User: admin, Pass: admin</p>
     </form>

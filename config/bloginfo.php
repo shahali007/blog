@@ -1,12 +1,17 @@
 <?php
-
+include_once "connection.php";
+include_once "session.php";
+date_default_timezone_set("Asia/Dhaka");
 
 class blogInfo{
     public $db;
+    public $helper;
+
 
     public function __construct(){
-        include_once "connection.php";
+
         $this->db = new Database();
+        $this->helper = new helperClass();
     }
 
 
@@ -38,7 +43,7 @@ class blogInfo{
 
     # select all category
     public function allcategory(){
-        $sql = "SELECT * FROM blog_category";
+        $sql = "SELECT * FROM blog_category ORDER BY c_id DESC";
         $query = $this->db->pdo->prepare($sql);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -86,6 +91,101 @@ class blogInfo{
     }
 
 
+    # get category by category id
+    public function getCategoryByCatId($id){
+        $sql = "SELECT * FROM blog_category WHERE c_id = :id";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+
+    # check cateory existance
+    public function categoryCheck($name){
+        $sql = "SELECT cat_name FROM blog_category WHERE cat_name = :cat_name";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(':cat_name', $name);
+        $query->execute();
+        if($query->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    # insert category
+    public function insertCategory($data){
+        if (!empty($data['cat_name'])){
+            $catName = $data['cat_name'];
+        }
+        if (!empty($data['cat_slug'])){
+            $catSlug = $data['cat_slug'];
+        }
+        $chk_category_name    = $this->categoryCheck($catName);
+        if($chk_category_name == true){
+            Session::set("catExistMsg", '<strong>Warning! </strong>Category Already Exists.');
+        }
+        else{
+            $createdAt	= date('Y-m-d H:i:s');
+            $sql = "INSERT INTO blog_category (cat_name,cat_slug,created_at)VALUES (:cat_name,:cat_slug,:created_at)";
+            $query = $this->db->pdo->prepare($sql);
+            $query->bindParam(':cat_name', $catName);
+            $query->bindParam(':cat_slug', $catSlug);
+            $query->bindParam(':created_at', $createdAt);
+            $result = $query->execute();
+            if ($result){
+                Session::set("catInsertMsg", '<strong>Successfully! </strong>Category Inserted.');
+                return $result;
+            }
+        }
+    }
+
+
+    # update category
+    public function updateCategoryByCatId($data, $catId){
+        $catName    = $data['cat_name'];
+        $catSlug    = $data['cat_slug'];
+        $updated_at	= date('Y-m-d H:i:s');
+        $status     = $data['status'];
+
+        $sql = "UPDATE blog_category SET
+                    cat_name    = :cat_name,
+                    cat_slug    = :cat_slug,
+                    updated_at  = :updated_at,
+                    status      = :status
+                WHERE c_id = :id";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindParam(':cat_name', $catName);
+        $query->bindParam(':cat_slug', $catSlug);
+        $query->bindParam(':updated_at', $updated_at);
+        $query->bindParam(':status', $status);
+        $query->bindParam(':id', $catId);
+        $result = $query->execute();
+        if ($result){
+            Session::set("updatemsg", '<strong>Successfully! </strong>Category Information Updated.');
+            //return $result;
+            header("Location: category.php");
+        }
+    }
+
+
+    # get subcategory with category
+    public function getSubcategoryWIthCategory(){
+        $sql ="SELECT blog_sub_category.*, blog_category.cat_name 
+                FROM blog_sub_category
+                INNER JOIN blog_category
+                ON blog_category.c_id = blog_sub_category.cat_id";
+        $query = $this->db->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
     # search query
     public function searchQuery($keyword){
         $sql = "SELECT * FROM blog_post 
@@ -101,6 +201,7 @@ class blogInfo{
         return $result;
     }
 
+
     #abaler sonkha update
     public function abalerSonkharUpdate(){
         $sql = "UPDATE blog_abal_hit SET abaler_sonkha = abaler_sonkha + 1 WHERE id=1";
@@ -108,6 +209,7 @@ class blogInfo{
         $result = $query->execute();
         return $result;
     }
+
 
     #abaler sonkha nirnoy
     public function abalerSonkharNirnoy(){
@@ -118,10 +220,12 @@ class blogInfo{
         return $result;
     }
 
+
     # select all post with sub cat
     public function getPostWithSubCatByPostId(){
 
     }
+
 
     # get subcat by category id
     public function allSubcatBYcatId($id){
@@ -132,6 +236,47 @@ class blogInfo{
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+
+    # Get Login data
+    public function get_login_check($user_name, $password){
+        $sql ="SELECT * FROM blog_user WHERE user_name = :user_name AND password = :user_password LIMIT 1";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(":user_name", $user_name);
+        $query->bindValue(":user_password", md5($password));
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+
+    # Login statement
+    public function loginStatement($data){
+        $user_name = $this->helper->validation($data['user_name']);
+        $password = $this->helper->validation($data['user_password']);
+        if($user_name == ""){
+            $msg['user_name'] = '<p style="color:red;">Error! User Name must not be empty.</p>';
+        }
+        if($password == ""){
+            $msg['user_password'] = '<p style="color:red;">Error! Password must not be empty</p>';
+        }
+        if(!empty($msg)){
+            return $msg;
+        }
+        $result = $this->get_login_check($user_name, $password);
+        if($result){
+            Session::init();
+            Session::set("login", true);
+            Session::set("user_name", $result->user_name);
+            Session::set("loginmsg", '<strong>Success! </strong>You are Logged In.');
+            header ("Location: index.php");
+        }
+        else{
+            $msg = '<p class="text-danger"><strong>Error! </strong>Data Not Found!</p>';
+            return $msg;
+        }
+    }
+
 }
 ?>
 

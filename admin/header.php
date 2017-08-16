@@ -1,4 +1,18 @@
-<?php $sUrl = "http://localhost:9000/workstation/blog/admin/";?>
+<?php
+    ob_start();
+    include_once "../config/session.php";
+    Session::checkSession();
+    $sUrl = "http://localhost:9000/workstation/blog/admin/";
+    include_once "../config/bloginfo.php";
+    include_once "../helper/helper-functions.php";
+    $blogInfo = new blogInfo();
+    $helperClass = new helperClass();
+
+    if (isset($_GET['action']) && $_GET['action'] == 'logout'){
+        Session::destroy();
+    }
+    //date_default_timezone_set("Asia/Dhaka");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,12 +84,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/shahali.jpg" alt=""> Shahali Bogdadi
+                                <img src="../images/shahali007.JPG" alt=""> Shahali Bogdadi
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="<?php echo $sUrl;?>change-password.php"><i class="fa fa-lock pull-right"></i> Change Password</a></li>
-                                <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <li><a href="?action=logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
                         </li>
                     </ul>

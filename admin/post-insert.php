@@ -1,5 +1,9 @@
 <?php include_once "header.php"; ?>
-
+<?php
+    if (isset($_POST['insert'])){
+        header("location:text.php");
+    }
+?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="row">
@@ -17,7 +21,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <form method="post" id="demo-form" data-parsley-validate enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form method="post" action="text.php" id="demo-form" data-parsley-validate enctype="multipart/form-data" class="form-horizontal form-label-left">
                         <div class="row">
                             <div class="col-md-9 col-sm-12 col-xs-12">
                                 <div class="x_panel">
@@ -112,7 +116,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="save-news" class="btn btn-success btn-block btn-lg">Insert</button>
+                                    <button type="submit" name="insert" class="btn btn-success btn-block btn-lg">Insert</button>
                                 </div>
                             </div>
                         </div>
