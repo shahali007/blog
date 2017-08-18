@@ -277,6 +277,34 @@ class blogInfo{
         }
     }
 
+
+    # contact form message
+    public function msgSent($data){
+        $error = array();
+        if(!empty($data['first_name'])){$firstName = $data['first_name'];}
+            else{$error['err_first_name'] = "First Name cannot be empty!";}
+        if(!empty($data['last_name'])){$lastName = $data['last_name'];}
+            else{$error['err_last_name'] = "Last Name cannot be empty!";}
+        if(!empty($data['email_address'])){$emailAddress = $data['email_address'];}
+            else{$error['err_email_address'] = "Last Name cannot be empty!";}
+        if(!empty($data['message'])){$message = $data['message'];}
+        $createdAt = date('Y-m-d H:i:s');
+
+        $sql = "INSERT INTO blog_contact(first_name, last_name, email, message, created_at) VALUES(:first_name, :last_name, :email, :message, :created_at)";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindParam(':first_name', $firstName);
+        $query->bindParam(':last_name',$lastName );
+        $query->bindParam(':email', $emailAddress);
+        $query->bindParam(':message', $message);
+        $query->bindParam(':created_at', $createdAt);
+
+        $result = $query->execute();
+        if ($result){
+            Session::set("MsgSubmit", "<strong>Successfully! </strong>Message sent.");
+            return $result;
+        }
+
+    }
 }
 ?>
 

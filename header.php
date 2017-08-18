@@ -58,6 +58,7 @@
                 <li><a href="<?php echo $sUrl;?>contact.php">Contact</a></li>
                 <li><a href="<?php echo $sUrl;?>settings.php">Settings</a></li>
                 <li><a href="<?php echo $sUrl;?>practice.php">Test Page</a></li>
+                <li><a href="<?php echo $sUrl;?>admin/login.php"><i class="fa fa-sign-in"></i> Login</a></li>
             </ul>
             <form class="navbar-form navbar-right" method="GET" action="search.php" role="search" style="margin-right:-5px;">
                 <div class="input-group">
