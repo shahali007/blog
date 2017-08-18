@@ -406,3 +406,21 @@ footer p{
 footer a{
     color: #005FEE;
 }
+
+
+/*
+-------------------------
+| error messgae css for form
+-------------------------*/
+.errorMsg {
+    color: red;
+    display: block;
+    font-weight:bold;
+}
+.successMsg {
+    color: #fff;
+    border:1px solid green;
+    padding:15px;
+    background: green;
+    margin-bottom:15px;
+}

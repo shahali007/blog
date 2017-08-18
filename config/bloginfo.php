@@ -319,6 +319,15 @@ class blogInfo{
         }
 
     }
+
+    # get all contact form message
+    public function msgShow(){
+        $sql = "SELECT * FROM blog_contact";
+        $query = $this->db->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 ?>
 
